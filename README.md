@@ -1,9 +1,20 @@
 # bzl-sdk-node
 
-This repository contains the generated protobuf definitions for the Bzl gRPC API
-as well as a more developer-friendly index.js entrypoint.
+[![NPM version](https://img.shields.io/npm/v/@stackb/bzl-sdk-node.svg)](https://www.npmjs.com/package/@stackb/bzl-sdk-node)
 
-API definitions: https://github.com/stackb/apis/tree/master/build/stack/bzl/v1beta
+This repository contains the generated protobuf definitions for the
+[Bzl](https://build.bzl.io) gRPC API as well as a more developer-friendly
+index.js entrypoint.
+
+Canonical API definitions are at https://github.com/stackb/apis/tree/master/build/stack/bzl/v1beta
+
+## Usage
+
+```
+npm install @stackb/bzl-sdk-node
+```
+
+Given a running process (e.g. `bzl serve`), connect to the server and retrieve metadata:
 
 ```js
 const v1beta1 = require('@stackb/bzl-sdk-node').v1beta;

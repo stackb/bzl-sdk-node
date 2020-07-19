@@ -2,7 +2,7 @@
   "name": "@stackb/bzl-sdk-node",
   "displayName": "Bzl SDK for Node",
   "description": "SDK for the Bzl API (nodejs)",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "categories": [
     "Other"
   ],
