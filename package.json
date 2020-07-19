@@ -1,5 +1,5 @@
 {
-  "name": "bzl-sdk-node",
+  "name": "@stackb/bzl-sdk-node",
   "displayName": "Bzl SDK for Node",
   "description": "SDK for the Bzl API (nodejs)",
   "version": "0.0.1",
@@ -19,5 +19,19 @@
   },
   "scripts": {
     "test": "jest"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackb/bzl-sdk-node.git"
+  },
+  "keywords": [
+    "bazel",
+    "grpc"
+  ],
+  "author": "stack.build authors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stackb/bzl-sdk-node/issues"
+  },
+  "homepage": "https://github.com/stackb/bzl-sdk-node#readme"
 }
