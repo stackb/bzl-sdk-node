@@ -2,7 +2,7 @@
   "name": "@stackb/bzl-sdk-node",
   "displayName": "Bzl SDK for Node",
   "description": "SDK for the Bzl API (nodejs)",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "categories": [
     "Other"
   ],
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "google-protobuf": "^4.0.0-rc.1",
-    "grpc": "^1.24.3"
+    "@grpc/grpc-js": "1.1.2"
   },
   "devDependencies": {
     "jest": "^26.1.0"

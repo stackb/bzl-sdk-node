@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/@stackb/bzl-sdk-node.svg)](https://www.npmjs.com/package/@stackb/bzl-sdk-node)
 
-This repository contains the generated protobuf definitions for the
+This repository contains the generated protobuf/grpc-js definitions for the
 [Bzl](https://build.bzl.io) gRPC API as well as a more developer-friendly
 index.js entrypoint.
 
@@ -17,18 +17,23 @@ npm install @stackb/bzl-sdk-node
 Given a running process (e.g. `bzl serve`), connect to the server and retrieve metadata:
 
 ```js
+const grpc = require('@grpc/grpc-js');
 const v1beta1 = require('@stackb/bzl-sdk-node').v1beta;
 
-// Create a grpc client to the Application service
-const appClient = v1beta1.newApplicationClient('localhost:1080');
+const client = new v1beta1.ApplicationClient(
+        'localhost:1080', 
+        grpc.credentials.createInsecure());
 
-// Wait for the connection to be ready and perform a call to the unary GetApplicationMetata rpc endpoint. 
-appClient.waitForReady(4000, () => {
-    appClient.getApplicationMetadata(
-        new v1beta1.pb.ApplicationMetadataRequest(),
-        (err, metadata) => {
+client.waitForReady(4000, () => printMetadata);
+
+function printMetadata() {
+    const request = new v1beta1.GetApplicationMetadataRequest();
+    client.getApplicationMetadata(request, (err, metadata) => {
+        if (err) {
+            console.warn('could not get metadata', err);
+        } else {
             console.log(`Connected to Bzl ${metadata.getVersion()}`);
         }
-    )
-});
+    });
+}
 ```
